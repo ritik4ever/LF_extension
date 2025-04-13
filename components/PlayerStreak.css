@@ -1,0 +1,82 @@
+.player-streak {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.streak-animate {
+  transform: scale(1.1);
+  background-color: #854d0e;
+}
+
+.streak-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.streak-label {
+  color: #d1d5db;
+  font-size: 0.875rem;
+}
+
+.streak-value {
+  color: white;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.streak-bonus {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+  background: linear-gradient(to right, #f97316, #dc2626);
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  animation: pulse 2s infinite;
+}
+
+.bonus-icon {
+  font-size: 0.875rem;
+}
+
+.bonus-text {
+  color: white;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.highest-streak {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.highest-label {
+  opacity: 0.7;
+}
+
+.highest-value {
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}

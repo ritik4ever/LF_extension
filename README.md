@@ -97,3 +97,52 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+
+# PlayerStreak Feature
+
+## Overview
+The PlayerStreak feature tracks consecutive correct answers in LyricFlip and rewards players with bonus points and achievements for maintaining their streak.
+
+## Installation
+
+1. The feature is fully integrated into the main LyricFlip codebase.
+2. No additional installation steps are required beyond the standard project setup.
+
+## Features
+
+- **Streak Tracking**: Records consecutive correct answers and maintains a player's current streak
+- **Streak Expiry**: Streaks expire after 30 minutes of inactivity
+- **Bonus Points**: Awards multipliers to scores based on streak length:
+  - 3-4 correct answers: 1.5x multiplier
+  - 5-9 correct answers: 2x multiplier
+  - 10+ correct answers: 3x multiplier
+- **Milestone Achievements**: Records when players reach specific streak thresholds
+- **Visual Feedback**: Provides animations and visual indicators when streaks are active
+
+## API Endpoints
+
+- **GET /player-streak**: Gets the current streak information
+- **POST /player-streak/increment**: Increments the streak counter
+- **POST /player-streak/reset**: Resets the streak counter
+- **GET /player-streak/bonus**: Gets the current bonus multiplier
+
+## Frontend Components
+
+- **PlayerStreak**: Component that displays the current streak, highest streak, and active bonus
+- Includes animations and visual indicators for player feedback
+
+## Technical Details
+
+- Implemented using NestJS for the backend
+- Uses MongoDB via Mongoose for data storage
+- Integrates with the existing game logic for answer processing
+- Frontend built with React and styled with CSS/TailwindCSS
+
+## Testing
+
+Run the tests with:
+
+```bash
+npm test -- player-streak

@@ -1,13 +1,24 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { GameRoundModule } from './game-round/game-round.module';
-import { GameSessionModule } from './game-session/game-session.module';
-import question
+import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { PlayerStreakModule } from './player-streak/player-streak.module';
+// Other imports
 
 @Module({
-  imports: [GameRoundModule, GameRoundModule, QuestionModule],
-  controllers: [AppController],
-  providers: [AppService],
-}), 
+  imports: [
+    ConfigModule.forRoot(),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_URI'),
+      }),
+      inject: [ConfigService],
+    }),
+    // Add PlayerStreakModule to the imports
+    PlayerStreakModule,
+    // Your other modules
+  ],
+  controllers: [],
+  providers: [],
+})
 export class AppModule {}
